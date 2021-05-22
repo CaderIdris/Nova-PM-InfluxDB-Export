@@ -58,7 +58,7 @@ Navigate to the directory you want to store the program in and run `git clone ht
 
 ### Step 2: Run setup script
 
-`bash setup.sh` or `./setup.sh` runs the setup script, installing the virtual environment needed to run the program
+`bash venv_setup.sh` or `./venv_setup.sh` runs the setup script, installing the virtual environment needed to run the program
 
 ---
 
