@@ -64,7 +64,64 @@ Navigate to the directory you want to store the program in and run `git clone ht
 
 ## API
 
-This info can currently be found in documentation within python files, will be updated here later
+### [main.py](./main.py)
+The main script for running the program, utilises modules found in [modules](./modules/) using config specified in [Settings](./Settings)
+
+#### Command line arguments:
+
+| Argument | Type | Usage | Required? | Default |
+|---|---|---|---|---|
+|-c / --config|`str`|Alternate path to config file, use `/` in place of `\`|N|Settings/config.json|
+
+#### Functions
+
+##### fancy_print
+
+Makes console output nicer
+
+###### Keyword Arguments
+
+| Argument | Type | Usage | Required? | Default |
+|---|---|---|---|---|
+|*str_to_print*|`str`|String that gets printed to console|Y|None|
+|*length*|`int`|Character length of output|N|70|
+|*form*|`str`|Output type (listed below)|N|NORM|
+|*char*|`str`|Character used as border, should only be 1 character|N|\U0001F533 (White box emoji)|
+|*end*|`str`|Appended to end of string, should be `\n` unless output is to be overwritten, then use `\r`|N|\n|
+|*flush*|`bool`|Flush the output stream?|N|False|
+
+**Valid options for _form_**
+| Option | Description |
+|---|---|
+|TITLE|Centres the string, one *char* at start and end|
+\NORM|Left aligned string, one *char* at start and end|
+|LINE|Prints line of *char* of specified *length*|
+
+##### get_json
+
+Open  json file and return as dict
+
+###### Keyword arguments
+
+| Argument | Type | Usage | Required? | Default |
+|---|---|---|---|---|
+|*path_to_json*|`str`|The path to the json file, can be relative e.g Settings/config.json|Y|None|
+
+###### Returns
+
+`dict` containing contents of json file
+
+###### Raises
+
+|Error Type|Cause|
+|---|---|
+|`FileNotFoundError`|File is not present|
+|`ValueError`|Formatting error in json file, e.g ' used instead of " or comma after last item| 
+
+### [novapm.py](./modules/novapm.py)
+
+### [influxwrite.py](./modules/influxwrite.py)
+
 
 ---
 
