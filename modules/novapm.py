@@ -87,11 +87,11 @@ class NovaPM:
             try:
                 # With microseconds
                 measurement_time = dt.datetime.strptime(split_data[7], 
-                        '"%Y-%m-%d %H:%M:%S.%f%z"') - dt.timedelta(hours=8)        
+                        '"%Y-%m-%d %H:%M:%S.%f%z"')        
             except ValueError:
                 # Without microseconds
                 measurement_time = dt.datetime.strptime(split_data[7], 
-                        '"%Y-%m-%d %H:%M:%S%z"') - dt.timedelta(hours=8)
+                        '"%Y-%m-%d %H:%M:%S%z"')
             # -8 hours to correct to GMT as the sensor thinks it's in China
             # but it's in London
             try:
